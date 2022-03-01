@@ -1,0 +1,36 @@
+
+{% extends "Admin/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container w-75">
+<div
+        class="d-flex justify-content-center m-5">
+					<h1 class="mt-5">Course Details</h1>
+				</div>
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col"><h5>Name</h5></th>
+        <th scope="col"><h5>Credit Hours</h5></th>
+        <th scope="col"><h5>Delete</h5></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for course in courses %}
+    <tr>
+      <td>{{course.c_name}}</td>
+      <td>{{course.c_hr}}</td>
+    <td>
+      <a href="{% url 'delete_course' id=course.id %}" class="badge badge-secondary">Delete</a>
+    </td>
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+    <div class="mt-5">
+        <a href="{%url 'add-Course'%}">
+<button type="button" class="btn btn-secondary btn-lg ">Add Course</button>
+        </a>
+</div>
+</div>
+{% endblock content %}

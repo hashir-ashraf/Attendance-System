@@ -1,0 +1,48 @@
+{% extends "Admin/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+    <!--###################### Key Features Starts Here ##########################-->
+    <div class="key-features container-fluid">
+        <div class="container">
+            <div class="session-title row mt-5">
+                <h2 class="mt-5">Admin Features</h2>
+                <p>Main feature of admin is to Add/Delete instructors and students
+for Attendance </p>
+            </div>
+            <div class="key-row row">
+
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i><img  src="{%static 'Admin/assets/images/TeacherIcon.png'%}"/></i>
+                        <h6 ><a href="{%url 'Instructor_operations'%}" class="link-secondary">Instructor</a></h6>
+                        <p> Our approach is to give people safety in public area in order to automatically warn the public
+officers and enable quick action against them </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i><img  src="{%static 'Admin/assets/images/CourseIcon.png'%}"/></i>
+                        <h6 ><a href="{%url 'Course-Operations'%}" class="link-secondary">Course</a></h6>
+                        <p> Our approach is to give people safety in public area in order to automatically warn the public
+officers and enable quick action against them </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i c><img  src="{%static 'Admin/assets/images/Studenticon.png'%}"/></i>
+                        <h6><a href="{% url 'Student_operations'%}" class="link-secondary">Students</a></h6>
+                        <p>Our system is monitoring the surveillance camera's for detection fight in public ares to protect the public from any incident</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock content %}

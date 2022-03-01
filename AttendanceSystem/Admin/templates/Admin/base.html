@@ -1,0 +1,190 @@
+
+
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <title> Smart Security </title>
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'Admin/assets/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/plugins/image-hover/imagehover.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Admin/assets/css/style.css' %}" />
+
+
+    <script src="https://kit.fontawesome.com/e4ad24ebff.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body style="">
+{% if user.is_authenticated %}
+
+
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+{% if user.is_admin%}
+
+<a class="log ml-5 mb-2" href="{%url 'Admin-Home'%}">
+    <div>
+<img src="{% static 'Admin/assets/images/icons8-attendance-64.png'%}" width="23" height="23" class="d-inline-block align-top" alt="">
+</div>
+  </a>
+
+</div>
+    <a href="{%url 'Admin-Home'%}"> <h5 class="mt-1 ml-2" style="color: white;">Attendance System</h5></a>
+    {%elif user.is_instructor%}
+
+<a class="log ml-5 mb-2" href="{%url 'Instructor-Home'%}">
+    <div>
+<img src="{% static 'Admin/assets/images/icons8-attendance-64.png'%}" width="23" height="23" class="d-inline-block align-top" alt="">
+</div>
+  </a>
+
+</div>
+    <a href="{%url 'Instructor-Home'%}"> <h5 class="mt-1 ml-2" style="color: white;">Attendance System</h5></a>
+     {%elif user.is_student%}
+
+<a class="log ml-5 mb-2" href="{%url 'Student-Home'%}">
+    <div>
+<img src="{% static 'Admin/assets/images/icons8-attendance-64.png'%}" width="23" height="23" class="d-inline-block align-top" alt="">
+</div>
+  </a>
+
+</div>
+    <a href="{%url 'Student-Home'%}"> <h5 class="mt-1 ml-2" style="color: white;">Attendance System</h5></a>
+    {%else%}
+    {% endif %}
+
+
+   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ml-auto mr-5">
+
+
+        <li class="nav-item ">
+        <a class="nav-item nav-link" href="{%url 'Admin_profile'%}">Profile</a>
+      </li>
+
+        <li class="nav-item ">
+        <a class="nav-item nav-link" href="{%url 'Admin_logout'%}">Logout</a>
+      </li>
+
+
+    </ul>
+  </div>
+
+</nav>
+
+
+<div class="col-md-8 mt-5">
+            {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                </div>
+                {%endfor%}
+            {%endif%}
+
+        </div>
+
+{% else %}
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+
+<a class="log ml-5 mb-2" href="{%url 'front-page'%}">
+    <div>
+<img src="{% static 'Admin/assets/images/icons8-attendance-64.png'%}" width="23" height="23" class="d-inline-block align-top" alt="">
+    </div>
+  </a>
+
+</div>
+    <a href="{%url 'Admin-Home'%}"> <h5 class="mt-1 ml-2" style="color: white;">Attendance System</h5></a>
+
+</nav>
+
+<div class="container-fluid mt-5">
+            {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                </div>
+                {%endfor%}
+            {%endif%}
+
+        </div>
+
+{%endif%}
+
+
+
+
+{% block content %}{% endblock %}
+
+
+
+
+    <!--###################### Footer Starts Here ############################-->
+{% if user.is_authenticated %}
+
+<footer>
+   <div class="foot-det ">
+
+
+    <div class="container foot-cont">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="foot-about">
+                    <h4>Attendence System</h4>
+                    <p>Attendence system is a software that can automatically marked the attendence by the help of AI model </p>
+                    <ul>
+                            <li><a><i class="fab fa-github"></i></a></li>
+                            <li><a><i class="fab fa-linkedin-in"></i></a></li>
+                            <li> <a><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a><i class="fab fa-twitter"></i></a></li>
+                            <li> <a><i class="fab fa-facebook-f"></i></a></li>
+                        </ul>
+                </div>
+            </div>
+<!--            <div class="col-md-4 menu-foot">-->
+<!--                <h4>Menu</h4>-->
+<!--                <ul>-->
+<!--                    <li><a href="#">Home</a></li>-->
+<!--                    <li><a href="#">Live Stream</a></li>-->
+<!--                    <li><a href="#">Services</a></li>-->
+<!--                    <li><a href="#">Contact us</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+            <div class="col-md-4 cont-foot ml-auto">
+                <h4>Contacts</h4>
+                <h5>+92 3229712787</h5>
+                <p>Rangpura Sialkot, Pakistan</p>
+                <a href="">smartsecurity12@gmail.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right">
+        <div class="container">
+            <p> All Rights Reserved | Designed and Developed by <a href="#">www.AttendenceSystem.com</a></p>
+        </div>
+    </div>
+    </div>
+</footer>
+
+{% else %}
+
+{% endif %}
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js'"></script>
+<script src="{% static 'Admin/assets/js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'Admin/assets/js/popper.min.js'%}"></script>
+<script src="{% static 'Admin/assets/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'Admin/assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js'%}"></script>
+
+<script src="{% static 'Admin/assets/js/script.js'%}"></script>
+
+
+</html>

@@ -1,0 +1,88 @@
+{% extends "Admin/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+    <!--###################### Key Features Starts Here ##########################-->
+    <div class="key-features container-fluid">
+        <div class="container">
+            <div class="session-title row">
+                <h2>View Atendance</h2>
+                <p>Main feature of Instructor is to mark attendance of students</p>
+            </div>
+
+<form action="{%url 'Student-Home'%}" method="post" class="ml-5 w-50 ">
+    {% csrf_token %}
+    <div class="form-group w-25">
+    <label for="exampleFoontrolSelect221">Course</label>
+    <select class="form-control" id="c" name="course" >
+        {% for course in courses %}
+      <option value="{{course.id}}">{{course.c_name}}</option>
+         {% endfor %}
+    </select>
+  </div>
+   <div class="input-group  mb-3 w-25 ">
+   <div class="d-flex justify-content">
+  <button type="submit" class="btn btn-secondary">View</button>
+  </div></div>
+
+</form>
+
+   <div class="session-title row ml-5">
+                <h2>Attendance details</h2>
+
+            </div>
+
+        <table class="table ">
+
+  <thead>
+    <tr>
+
+        <th scope="col"><h5>Course</h5></th>
+        <th scope="col"><h5>Date</h5></th>
+        <th scope="col"><h5>status</h5></th>
+
+    </tr>
+    {% for at in attendence %}
+    <tr>
+      <td>{{at.course}}</td>
+      <td>{{at.date}}</td>
+      <td>{{at.status}}</td>
+    </tr>
+ {% endfor %}
+
+  </thead>
+
+
+  </tbody>
+
+
+
+
+
+  {% for reserve in reservations %}
+    <tr>
+      <td>{{reserve.id}}</td>
+      <td>{{reserve.driver.name}}</td>
+      <td>{{reserve.slots.id}}</td>
+
+      <td><a href="{% url 'SmartParking-cancel' id=reserve.id %}" class="btn btn-outline-secondary"  >
+
+          Cancel Reservation </a></td>
+
+    </tr>
+ {% endfor %}
+
+
+  </tbody>
+
+
+</table>
+
+    </div>
+
+
+
+
+{% endblock content %}

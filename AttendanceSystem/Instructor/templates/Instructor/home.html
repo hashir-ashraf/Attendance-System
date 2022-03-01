@@ -1,0 +1,64 @@
+{% extends "Admin/base.html" %}
+{% load static %}
+{% block content %}
+    <!--###################### Key Features Starts Here ##########################-->
+    <div class="key-features container-fluid">
+        <div class="container">
+            <div class="session-title row">
+                <h2 class="mt-5">Mark Atendance</h2>
+                <p>Main feature of Instructor is to mark attendance of students</p>
+            </div>
+            <form action="{%url 'Instructor-Home'%}" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+            <div class = ''>
+                <label for="Date">Select Date:</label>
+                 <input type="date" id="date" name="Date" required>
+                </div>
+            <div >
+
+              <div >
+                  <label for="Date">Upload Image</label>
+                <input type="file"   name="document" required>
+              </div>
+            </div>
+              <div class="d-flex justify-content">
+              <button type="submit" class="btn btn-secondary">Mark Attendance</button>
+              </div>
+
+            <div class="session-title row">
+                <h2>Successfully Marked</h2>
+
+            </div>
+            </form>
+            </div>
+
+
+        <table class="table ">
+
+  <thead>
+    <tr>
+        <th scope="col"><h5>Name</h5></th>
+        <th scope="col"><h5>Course</h5></th>
+        <th scope="col"><h5>Date</h5></th>
+        <th scope="col"><h5>status</h5></th>
+
+    </tr>
+    {% for stu in marked %}
+    <tr>
+
+        <td scope="col">{{stu.student}}</td>
+        <td scope="col">{{stu.course}}</td>
+        <td scope="col">{{stu.date}}</td>
+        <td scope="col">{{stu.status}}</td>
+
+
+  </tr>
+  {% endfor %}
+  </thead>
+</table>
+    </div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "Admin/base.html" %}
+{% block content %}
+
+<div class="alert alert-info m-5">
+        <h2>Logged Out</h2>
+        <p>You have been Successfully Logged Out</p>
+
+</div>
+<div class="border-top pt-3 m-3">
+            <small class="text-muted">
+             <a href="{% url 'front-page'%}">Log In Now</a>
+            </small>
+        </div>
+
+
+
+{% endblock content %}

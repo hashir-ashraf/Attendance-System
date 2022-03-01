@@ -1,0 +1,48 @@
+{% extends "Admin/base.html" %}
+{% load static %}
+{% load custom_tags %}
+{% block content %}
+
+
+        <div class="container">
+            <div class="session-title row">
+                <h2 class="mt-5">Student courses</h2>
+
+            </div>
+        </div>
+<form action="{%url 'Admin-check' id=s_student.id %}" method="post" class="ml-5 w-50 ">
+    {% csrf_token %}
+  <div class="form-group">
+      <h2>
+    <label for="exampleFormControlInput1">Student Username : {{s_student.username}} {{s_student.id}}</label></h2>
+<!--    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name">-->
+  </div>
+  <label for="exampleFormControlInput1">Select Course</label>
+    {% if r_courses%}
+    <label class="form-check-label" for="flexCheckDefault">already registered courses select to unregister</label>
+        {% for course in r_courses %}
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="{{course.id}}" id="flexCheckDefault"name="{{course.id}}">
+    <label class="form-check-label" for="flexCheckDefault"> {{course.c_name}} </label>
+  </div>
+
+   {% endfor %}
+    {% endif %}
+     <br>
+{% if courses%}
+    <label class="form-check-label" for="flexCheckDefault">not registered courses select to register</label>
+    {% for course in courses %}
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="{{course.id}}" id="flexCheckDefault1"name="{{course.c_name}}">
+    <label class="form-check-label" for="flexCheckDefault"> {{course.c_name}} </label>
+  </div>
+   {% endfor %}
+    {% endif%}
+  <br>
+
+  <div class="d-flex justify-content">
+  <button type="submit" class="btn btn-secondary btn-lg mb-5">Add</button>
+  </div>
+  </div>
+</form>
+{% endblock content %}

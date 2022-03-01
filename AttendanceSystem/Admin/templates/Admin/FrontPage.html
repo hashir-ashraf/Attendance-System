@@ -1,0 +1,95 @@
+
+
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <title> Smart Security </title>
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'Admin/assets/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/plugins/image-hover/imagehover.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Admin/assets/css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Admin/assets/css/style.css' %}" />
+
+
+    <script src="https://kit.fontawesome.com/e4ad24ebff.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+
+<a class="log ml-5 mb-2" href="{%url 'Admin-Home'%}">
+    <div>
+<img src="{% static 'Admin/assets/images/icons8-attendance-64.png'%}" width="23" height="23" class="d-inline-block align-top" alt="">
+
+  </a>
+</div>
+    <a href="{%url 'Admin-Home'%}"> <h5 class="mt-1 ml-2" style="color: white;">Attendance System</h5></a>
+
+</nav>
+<div class="col-md-8">
+            {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                </div>
+                {%endfor%}
+            {%endif%}
+        </div>
+    <!--###################### Key Features Starts Here ##########################-->
+    <div class="key-features container-fluid mt-5">
+        <div class="container">
+            <div class="session-title row">
+                <h2 class="mt-5">Welcome to Attendance System</h2>
+                <p>Main feature of admin is to Add/Delete instructors and students
+for Attendance </p>
+            </div>
+            <div class="key-row row">
+
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i><img  src="{%static 'Admin/assets/images/AdminIcon.png'%}"/></i>
+                        <h6 ><a href="{%url 'Admin_login'%}" class="link-secondary">Admin Login</a></h6>
+                        <p> Our approach is to give people safety in public area in order to automatically warn the public
+officers and enable quick action against them </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i><img  src="{%static 'Admin/assets/images/TeacherIcon.png'%}"/></i>
+                        <h6 ><a href="{%url 'Instructor_login'%}" class="link-secondary">Instructor Login</a></h6>
+                        <p> Our approach is to give people safety in public area in order to automatically warn the public
+officers and enable quick action against them </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="key-single">
+                        <i c><img  src="{%static 'Admin/assets/images/Studenticon.png'%}"/></i>
+                        <h6><a href="{% url 'Student_login'%}" class="link-secondary">Student Login</a></h6>
+                        <p>Our system is monitoring the surveillance camera's for detection fight in public ares to protect the public from any incident</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js'"></script>
+<script src="{% static 'Admin/assets/js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'Admin/assets/js/popper.min.js'%}"></script>
+<script src="{% static 'Admin/assets/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'Admin/assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js'%}"></script>
+
+<script src="{% static 'Admin/assets/js/script.js'%}"></script>
+
+
+</html>

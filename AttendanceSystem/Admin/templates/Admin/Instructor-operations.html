@@ -1,0 +1,55 @@
+
+{% extends "Admin/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container w-75 mt-5">
+
+<div
+        class="d-flex justify-content-center m-5 ">
+					<h1 class="mt-5">INSTRUCTOR DETAILS</h1>
+				</div>
+<table class="table">
+
+  <thead>
+    <tr>
+        <th scope="col"><h5>First Name</h5></th>
+        <th scope="col"><h5>Last Name</h5></th>
+        <th scope="col"><h5>User Name</h5></th>
+        <th scope="col"><h5>Email</h5></th>
+        <th scope="col"><h5>Gender</h5></th>
+      <th scope="col"><h5>Update/Delete</h5></th>
+    </tr>
+        {% for i in instructors %}
+    <tr>
+        <td scope="col">{{i.first_name}}</td>
+        <td scope="col">{{i.last_name}}</td>
+        <td scope="col">{{i.username}}</td>
+        <td scope="col">{{i.email}}</td>
+        <td scope="col">{{i.gender}}</td>
+      <td scope="col"><a href="{%url 'Admin_update_instructor_profile' iid=i.id%}" class="badge badge-secondary" >Update</a>
+      <a href="{% url 'delete_instructor' id=i.id %}"  class="badge badge-secondary">Delete</a>
+
+    </tr>
+ {% endfor %}
+  </thead>
+  </tbody>
+
+
+
+
+
+
+
+  </tbody>
+
+
+</table>
+    <div class="mt-5">
+        <a href="{%url 'add-Instructor'%}">
+<button  type="button" class="btn btn-secondary btn-lg ">Add Instructor</button>
+</a>
+</div>
+</div>
+
+
+{% endblock content %}
